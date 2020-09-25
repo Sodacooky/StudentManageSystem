@@ -18,7 +18,7 @@ Node* CreateList(unsigned int amount);
 //在指定位置前插入一个节点
 //插入成功返回插入的Node*，否则返回null
 //传入链表的头
-Node* InsertNode(Node* pNodeHead int index);
+Node* InsertNode(Node* pNodeHead, int index);
 
 //删除指定位置的节点，若不存在返回false
 //传入链表的头
