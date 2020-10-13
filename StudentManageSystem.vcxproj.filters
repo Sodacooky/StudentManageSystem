@@ -21,6 +21,9 @@
     <ClCompile Include="src\TextChooser.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\DataOperator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\TextChooser.h">
@@ -30,6 +33,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\Tool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DataOperator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Type.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
