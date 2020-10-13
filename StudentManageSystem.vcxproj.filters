@@ -24,13 +24,10 @@
     <ClCompile Include="src\DataOperator.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\check.cpp">
+    <ClCompile Include="src\Tool.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\RankingInterface.h">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="src\RankingInterface.cpp">
+    <ClCompile Include="src\StartInterface.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -48,9 +45,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\Type.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Check.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
