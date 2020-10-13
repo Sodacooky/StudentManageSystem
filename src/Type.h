@@ -36,4 +36,6 @@ struct Class
 	unsigned int unStuAmount = 0;
 	//班级类别，是否为理科班
 	bool bIsSciClass = false;
+	//总考试场数
+	unsigned int unExamAmount = 0;
 };
