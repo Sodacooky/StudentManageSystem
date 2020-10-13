@@ -2,13 +2,11 @@
 
 #include <iostream>
 
-#include "StartInterface.h"
-
+#include"Check.h"
 using namespace std;
 
 int main(int argc, char* argv[])
 {
-	auto ret = StartInterface();
-
+	check();
 	return 0;
 }

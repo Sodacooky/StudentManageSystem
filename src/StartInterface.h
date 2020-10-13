@@ -25,4 +25,5 @@ int StartInterface()
 	funcList.push_back("查看排名");
 
 	return TextChooserEnter(funcList, head);
+	
 }

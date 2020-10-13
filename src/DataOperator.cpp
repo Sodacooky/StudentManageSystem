@@ -28,5 +28,6 @@ bool LoadClassAttr(unsigned int classPrefix, Class* class_out)
 	{
 
 	}
+	return 0;
 }
 

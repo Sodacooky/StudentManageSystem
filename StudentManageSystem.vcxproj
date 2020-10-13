@@ -139,11 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\check.cpp" />
     <ClCompile Include="src\DataOperator.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\RankingInterface.cpp" />
+    <ClCompile Include="src\RankingInterface.h" />
     <ClCompile Include="src\TextChooser.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Check.h" />
     <ClInclude Include="src\DataOperator.h" />
     <ClInclude Include="src\StartInterface.h" />
     <ClInclude Include="src\TextChooser.h" />
