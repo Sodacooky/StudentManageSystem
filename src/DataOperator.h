@@ -18,3 +18,5 @@ int LoadAllStuInClass(unsigned int classPrefix, std::vector<Student>& stus);
 //读取一个班级的属性
 bool LoadClassAttr(unsigned int classPrefix, Class& class_out);
 
+//学生是否存在（实际上就是LoadStudentData的返回值
+bool IsStudentExist(unsigned int stuId);

@@ -167,3 +167,17 @@ bool LoadClassAttr(unsigned int classPrefix, Class & class_out)
 	return true;
 }
 
+bool IsStudentExist(unsigned int stuId)
+{
+	unsigned int classPrefix = stuId / 100;
+
+	unsigned int gradeId = 0, classId = 0;
+	SeparateClassPrefix(classPrefix, gradeId, classId);
+
+	std::string filename = "data/" + std::to_string(gradeId) + "/" + std::to_string(classId) + "/" + std::to_string(stuId) + ".txt";
+	if (!IsFileExist(filename))
+	{
+		return false;
+	}
+	return true;
+}
