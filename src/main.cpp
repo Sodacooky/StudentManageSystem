@@ -3,11 +3,13 @@
 #include <iostream>
 
 #include "StartInterface.h"
+#include "Tool.h"
 
 using namespace std;
 
 int main(int argc, char* argv[])
 {
-	cout << StartInterface();
+
+
 	return 0;
 }

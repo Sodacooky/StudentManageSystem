@@ -140,12 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\StartInterface.cpp" />
     <ClCompile Include="src\TextChooser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\StartInterface.h" />
     <ClInclude Include="src\TextChooser.h" />
+    <ClInclude Include="src\Tool.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

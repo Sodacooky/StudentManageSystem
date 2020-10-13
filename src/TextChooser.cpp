@@ -3,8 +3,9 @@
 //显示所有
 static void Display(std::vector<std::string>& content, int now_index);
 
-//等待键盘输入，返回一个delta index
+//等待键盘输入，返回一个delta index（正负1）
 //返回0为无效输入
+//返回2为回车
 static int HandleInput();
 
 static int HandleInput()
