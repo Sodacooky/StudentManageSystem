@@ -141,7 +141,9 @@
   <ItemGroup>
     <ClCompile Include="src\DataOperator.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\StartInterface.cpp" />
     <ClCompile Include="src\TextChooser.cpp" />
+    <ClCompile Include="src\Tool.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DataOperator.h" />
