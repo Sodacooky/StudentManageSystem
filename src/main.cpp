@@ -3,12 +3,12 @@
 #include <iostream>
 
 #include "StartInterface.h"
+#include "Tool.h"
+#include "Type.h"
 
 using namespace std;
 
 int main(int argc, char* argv[])
 {
-	auto ret = StartInterface();
-
 	return 0;
 }
