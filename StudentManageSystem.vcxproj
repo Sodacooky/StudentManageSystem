@@ -139,11 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\List.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\TextChooser.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\List.h" />
+    <ClInclude Include="src\TextChooser.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

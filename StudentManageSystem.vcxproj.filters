@@ -18,18 +18,12 @@
     <ClCompile Include="src\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\List.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Score.cpp">
+    <ClCompile Include="src\TextChooser.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\List.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Score.h">
+    <ClInclude Include="src\TextChooser.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
