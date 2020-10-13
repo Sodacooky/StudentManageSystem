@@ -20,3 +20,6 @@ bool LoadClassAttr(unsigned int classPrefix, Class& class_out);
 
 //学生是否存在（实际上就是LoadStudentData的返回值
 bool IsStudentExist(unsigned int stuId);
+
+//学生是否为理科生（默认学生存在
+bool IsSciClassStudent(unsigned int stuId);

@@ -85,7 +85,10 @@ bool LoadStudentData(unsigned int stuId, Student& stu_out)
 	unsigned int gradeId = 0, classId = 0;
 	SeparateClassPrefix(classPrefix, gradeId, classId);
 
-	std::string filename = "data/" + std::to_string(gradeId) + "/" + std::to_string(classId) + "/" + std::to_string(stuId) + ".txt";
+	std::string filename = "data/" 
+		+ CodeToString(gradeId) + "/"
+		+ CodeToString(classId) + "/"
+		+ std::to_string(stuId) + ".txt";
 	if (!IsFileExist(filename))
 	{
 		return false;
@@ -116,7 +119,7 @@ bool LoadStudentData(unsigned int stuId, Student& stu_out)
 
 int LoadAllStuInClass(unsigned int classPrefix, std::vector<Student>& stus)
 {
-
+	return 0;
 }
 
 bool LoadClassAttr(unsigned int classPrefix, Class & class_out)
@@ -174,10 +177,22 @@ bool IsStudentExist(unsigned int stuId)
 	unsigned int gradeId = 0, classId = 0;
 	SeparateClassPrefix(classPrefix, gradeId, classId);
 
-	std::string filename = "data/" + std::to_string(gradeId) + "/" + std::to_string(classId) + "/" + std::to_string(stuId) + ".txt";
+	std::string filename = "data/" + 
+		CodeToString(gradeId) + "/" + 
+		CodeToString(classId) + "/" +
+		std::to_string(stuId) + ".txt";
 	if (!IsFileExist(filename))
 	{
 		return false;
 	}
 	return true;
+}
+
+bool IsSciClassStudent(unsigned int stuId)
+{
+	Class class_attr;
+
+	LoadClassAttr(stuId / 100, class_attr);
+
+	return class_attr.bIsSciClass;
 }

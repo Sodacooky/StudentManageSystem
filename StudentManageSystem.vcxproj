@@ -144,7 +144,6 @@
     <ClCompile Include="src\DataOperator.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Query.cpp" />
-    <ClCompile Include="src\queryScoreShow.cpp" />
     <ClCompile Include="src\RankingInterface.cpp" />
     <ClCompile Include="src\StartInterface.cpp" />
     <ClCompile Include="src\TextChooser.cpp" />
@@ -154,7 +153,6 @@
     <ClInclude Include="src\Check.h" />
     <ClInclude Include="src\DataOperator.h" />
     <ClInclude Include="src\Query.h" />
-    <ClInclude Include="src\queryScoreShow.h" />
     <ClInclude Include="src\RankingInterface.h" />
     <ClInclude Include="src\StartInterface.h" />
     <ClInclude Include="src\TextChooser.h" />
