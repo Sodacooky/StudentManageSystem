@@ -2,13 +2,12 @@
 
 #include <iostream>
 
-#include "StartInterface.h"
-#include "Tool.h"
-#include "Type.h"
+#include "DataOperator.h"
 
 using namespace std;
 
 int main(int argc, char* argv[])
 {
+
 	return 0;
 }
