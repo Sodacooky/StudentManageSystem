@@ -13,6 +13,20 @@ static std::string CodeToString(unsigned int code);
 //计算目录下有多少个学生文件
 static int CountStudentAmount(const std::string& path, unsigned int classPrefix);
 
+//用班级前缀生成路径名称
+static std::string ClassPrefixToPath(unsigned int classPrefix);
+
+static std::string ClassPrefixToPath(unsigned int classPrefix)
+{
+	unsigned int gradeId = 0, classId = 0;
+	SeparateClassPrefix(classPrefix, gradeId, classId);
+
+	std::string path = "data/"
+		+ CodeToString(gradeId) + "/"
+		+ CodeToString(classId) + "/";
+
+	return path;
+}
 
 static int CountStudentAmount(const std::string& path, unsigned int classPrefix)
 {
@@ -82,13 +96,7 @@ bool LoadStudentData(unsigned int stuId, Student& stu_out)
 {
 	unsigned int classPrefix = stuId / 100;
 
-	unsigned int gradeId = 0, classId = 0;
-	SeparateClassPrefix(classPrefix, gradeId, classId);
-
-	std::string filename = "data/" 
-		+ CodeToString(gradeId) + "/"
-		+ CodeToString(classId) + "/"
-		+ std::to_string(stuId) + ".txt";
+	std::string filename = ClassPrefixToPath(classPrefix) + std::to_string(stuId) + ".txt";
 	if (!IsFileExist(filename))
 	{
 		return false;
@@ -129,15 +137,8 @@ bool LoadClassAttr(unsigned int classPrefix, Class & class_out)
 		return false;
 	}
 
-	//把班级号转成两节
-	unsigned int gradeId = 0, classId = 0;
-	SeparateClassPrefix(classPrefix, gradeId, classId);
-
 	//制作路径字符串
-	std::string path = "data/";
-	path.append(CodeToString(gradeId));
-	path.append("/");
-	path.append(CodeToString(classId));
+	std::string path = ClassPrefixToPath(classPrefix);
 	if (!IsPathExist(path))
 	{
 		return false;
@@ -174,13 +175,7 @@ bool IsStudentExist(unsigned int stuId)
 {
 	unsigned int classPrefix = stuId / 100;
 
-	unsigned int gradeId = 0, classId = 0;
-	SeparateClassPrefix(classPrefix, gradeId, classId);
-
-	std::string filename = "data/" + 
-		CodeToString(gradeId) + "/" + 
-		CodeToString(classId) + "/" +
-		std::to_string(stuId) + ".txt";
+	std::string filename = ClassPrefixToPath(classPrefix) + std::to_string(stuId) + ".txt";
 	if (!IsFileExist(filename))
 	{
 		return false;

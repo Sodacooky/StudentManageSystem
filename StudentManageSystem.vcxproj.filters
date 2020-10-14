@@ -33,13 +33,10 @@
     <ClCompile Include="src\Count.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\check.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="src\RankingInterface.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\Query.cpp">
+    <ClCompile Include="src\QueryInterface.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,13 +56,10 @@
     <ClInclude Include="src\Type.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\Check.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="src\RankingInterface.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\Query.h">
+    <ClInclude Include="src\QueryInterface.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

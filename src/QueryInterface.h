@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include<iostream>
 #include <sstream>
 #include <iomanip>
@@ -7,4 +7,6 @@
 #include "TextChooser.h"
 #include"DataOperator.h"
 
-void query();
+//查询界面
+//操作完会返回
+void QueryInterface();
