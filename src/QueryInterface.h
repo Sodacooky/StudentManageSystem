@@ -10,3 +10,4 @@
 //查询界面
 //操作完会返回
 void QueryInterface();
+static void RenderStudentData(Student& stu, std::string& strPrintContent);
