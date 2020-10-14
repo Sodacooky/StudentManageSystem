@@ -34,3 +34,17 @@ double CountTotalAverage(Student& stu)
 
 	return ret;
 }
+
+double CountClassAverage(std::vector<Student>& students)
+{
+	double ret = 0.0;
+
+	for (auto&stu : students)
+	{
+		ret += CountTotalAverage(stu);
+	}
+
+	ret /= students.size();
+
+	return ret;
+}
