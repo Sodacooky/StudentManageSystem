@@ -16,3 +16,7 @@ unsigned int StringToUInt(const std::string& str);
 
 //将浮点数转换为后面没有多余0的字符串
 std::string DoubleToValidString(double x);
+
+//用于mkdir
+//把 "/" 斜杠全部换成 "\" 斜杠
+void TransSlash(std::string& str);

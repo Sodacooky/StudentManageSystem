@@ -110,3 +110,12 @@ std::string DoubleToValidString(double x)
 
 	return ret;
 }
+
+void TransSlash(std::string& str)
+{
+	while (str.find('/') != str.npos)
+	{
+		auto pos = str.find('/');
+		str.replace(pos, 1, "\\");
+	}
+}

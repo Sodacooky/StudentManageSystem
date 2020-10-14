@@ -350,6 +350,7 @@ void CreateGrade(unsigned int gradeId)
 	std::string path = "data/" + CodeToString(gradeId);
 	std::string cmdLine = "mkdir " + path;
 
+	TransSlash(cmdLine);
 	system(cmdLine.c_str());
 }
 
@@ -372,6 +373,7 @@ void CreateClass(unsigned int classPrefix)
 	}
 
 	std::string cmdLine = "mkdir " + path;
+	TransSlash(cmdLine);
 	system(cmdLine.c_str());
 }
 
