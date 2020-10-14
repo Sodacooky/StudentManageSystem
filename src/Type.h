@@ -23,7 +23,7 @@ struct Student
 {
 	//
 	std::string strName;
-	//这个学生的几门成绩
+	//这个学生的几场考试成绩
 	std::vector<ExamScore> vecExamScores;
 };
 
@@ -36,6 +36,4 @@ struct Class
 	unsigned int unStuAmount = 0;
 	//班级类别，是否为理科班
 	bool bIsSciClass = false;
-	//总考试场数
-	unsigned int unExamAmount = 0;
 };
