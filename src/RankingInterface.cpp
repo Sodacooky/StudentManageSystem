@@ -166,7 +166,7 @@ void RankingInterface()
 			break;
 		case 2:
 			return;
-			//break;
+			break;
 		default:
 			break;
 		}

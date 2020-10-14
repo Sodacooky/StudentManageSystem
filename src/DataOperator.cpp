@@ -3,7 +3,7 @@
 //是否班级前缀合法
 static bool IsLegalClassPrefix(unsigned int classPrefix);
 
-//将班级前缀分割为年级号和班号（用于目录读取），注意班号是只有一位
+//将班级前缀分割为年级号和班号（用于目录读取），注意班号可能是只有一位
 //默认前缀合法
 static void SeparateClassPrefix(unsigned int classPrefix, unsigned int& gradeId_out, unsigned int& classId_out);
 
