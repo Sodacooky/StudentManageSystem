@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <iostream>
 #include<string>
 #include"Type.h"
@@ -9,4 +9,4 @@
 #include"DataOperator.h"
 #include"QueryInterface.h"
 
-void inputInterface();
+void RecordInterface();

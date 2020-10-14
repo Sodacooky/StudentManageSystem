@@ -11,9 +11,149 @@ static unsigned int ClassInput();
 static int SelectExam(const Class& cla);
 
 //将容器内的学生按指定考试总分从高到底排序
-static void SortTotalRankInClass(std::vector<Student>& vecStu, int examIndex);
+static void SortTotalRank(std::vector<Student>& vecStu, int examIndex);
 
-static void SortTotalRankInClass(std::vector<Student>& vecStu, int examIndex)
+//级排名
+static void TotalRankInGrade();
+
+//年级输入
+static int GradeInput();
+
+//选择文理科
+static int SelectSubject(unsigned int gradeId);
+
+//将容器内的学生按总分平均分从高到低排序
+static void SortTotalAverageRank(std::vector<Student>& vecStu);
+
+static void SortTotalAverageRank(std::vector<Student>& vecStu)
+{
+	//算出学生的分
+	for (auto&stu : vecStu)
+	{
+		double tmp = 0.0;
+		for (auto&exam : stu.vecExamScores)
+		{
+			tmp += CountTotalOfExam(exam);
+		}
+		tmp /= stu.vecExamScores.size();
+		stu.vecExamScores[0].dTotal = tmp;
+	}
+
+	//排序
+	for (int i = 0; i < vecStu.size(); i++)
+	{
+		for (int j = 1; j < vecStu.size(); j++)
+		{
+			if (vecStu[j - 1].vecExamScores[0].dTotal < vecStu[j].vecExamScores[0].dTotal)
+			{
+				std::swap(vecStu[j - 1], vecStu[j]);
+			}
+		}
+	}
+}
+
+static int SelectSubject(unsigned int gradeId)
+{
+	using namespace std;
+
+	string tips;
+	tips.append("------------------------------------------------\n");
+	tips.append("\t查看 ");
+	tips.append(to_string(gradeId));
+	tips.append(" 级总分排名\n");
+	tips.append("\t选择文理科\n");
+	tips.append("------------------------------------------------\n");
+
+	vector<string> selection = { "文科","理科" };
+	return TextChooserEnter(selection, tips);
+}
+
+static int GradeInput()
+{
+	using namespace std;
+
+	system("cls");
+
+	unsigned int gradeId;
+	//输入班级号
+	while (true)
+	{
+		cout << "------------------------------------------------\n";
+		cout << "\t查看级总分排名\n";
+		cout << "\t输入年级\n";
+		cout << "\t如19级为：19\n";
+		cout << "------------------------------------------------\n";
+
+		cout << "\n请输入年级：\t";
+		cin >> gradeId;
+		cout << endl;
+		if (!IsGradeExist(gradeId))
+		{
+			cout << "------------------------------------------------\n";
+			cout << "不正确的年级，请重新输入...\n";
+		}
+		else
+		{
+			break;
+		}
+	}
+
+	return gradeId;
+}
+
+static void TotalRankInGrade()
+{
+	using namespace std;
+
+	//选择年级
+	auto gradeId = GradeInput();
+
+	//选择文理科
+	bool isSci = SelectSubject(gradeId) == 1 ? true : false;
+
+	//读入班
+	vector<Class> vecClass;
+	LoadAllClassInGrade(gradeId, vecClass);
+
+	//读入学生
+	vector<Student> vecStudent;
+	for (auto&cla : vecClass)
+	{
+		if (cla.bIsSciClass == isSci)
+		{
+			LoadAllStuInClass(cla.unPrefix, vecStudent);
+		}
+	}
+
+	//排序
+	SortTotalAverageRank(vecStudent);
+
+	//打印
+	system("cls");
+	cout << "【 " << gradeId << " 级 " << (isSci ? "理科" : "文科") << " 排名】" << endl;
+	if (isSci)
+	{
+		cout << "排名\t姓名\t\t总分\n";
+	}
+	else
+	{
+		cout << "排名\t姓名\t\t总分\n";
+	}
+	cout << "-----------------------------------------------------\n";
+
+	for (int i = 0; i < vecStudent.size(); i++)
+	{
+		cout << i + 1 << "\t" << vecStudent[i].strName << (vecStudent[i].strName.size() > 6 ? "\t" : "\t\t");
+		cout << vecStudent[i].vecExamScores[0].dTotal << "\t";
+		cout << endl;
+	}
+
+	//等待
+	cout << "\n按任意键返回...";
+	_getch();
+}
+
+static void SortTotalRank(std::vector<Student>& vecStu, int examIndex)
 {
 	//算出学生的分
 	for (auto&stu : vecStu)
@@ -107,7 +247,7 @@ static void TotalRankInClass()
 	LoadAllStuInClass(classPrefix, vecStudents);
 
 	//排序
-	SortTotalRankInClass(vecStudents, examIndex);
+	SortTotalRank(vecStudents, examIndex);
 
 	//打印
 	cout << "【 " << classPrefix << " 班第 " << examIndex + 1 << " 次考试排名】" << endl;
@@ -159,7 +299,7 @@ void RankingInterface()
 		switch (input)
 		{
 		case 0:
-			//todo
+			TotalRankInGrade();
 			break;
 		case 1:
 			TotalRankInClass();

@@ -178,7 +178,7 @@ int LoadAllStuInClass(unsigned int classPrefix, std::vector<Student>& stus)
 		}
 	}
 
-	return 0;
+	return stus.size();
 }
 
 bool LoadClassAttr(unsigned int classPrefix, Class & class_out)
@@ -245,9 +245,14 @@ bool LoadAllClassInGrade(unsigned int gradeId, std::vector<Class>& clas)
 	{
 		if (fileInfo.attrib == _A_SUBDIR)
 		{
-			Class tmpClass;
-			LoadClassAttr(gradeId * 100 + StringToUInt(fileInfo.name), tmpClass);
+			if (string(fileInfo.name).find('.') == string::npos)
+			{
+				Class tmpClass;
+				LoadClassAttr(gradeId * 100 + StringToUInt(fileInfo.name), tmpClass);
+				clas.push_back(tmpClass);
+			}
 		}
+
 		if (_findnext(findHandle, &fileInfo) == -1)
 		{
 			_findclose(findHandle);
@@ -274,6 +279,16 @@ bool IsClassExist(unsigned int classPrefix)
 {
 	std::string path = ClassPrefixToPath(classPrefix);
 	return IsPathExist(path);
+}
+
+bool IsGradeExist(unsigned int gradeId)
+{
+	std::string path = "data/" + CodeToString(gradeId);
+	if (!IsPathExist(path))
+	{
+		return false;
+	}
+	return true;
 }
 
 bool IsSciClassStudent(unsigned int stuId)

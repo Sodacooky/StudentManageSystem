@@ -27,6 +27,9 @@ bool IsStudentExist(unsigned int stuId);
 //班级是否存在
 bool IsClassExist(unsigned int classPrefix);
 
+//年级是否存在
+bool IsGradeExist(unsigned int gradeId);
+
 //学生是否为理科生（默认学生存在
 bool IsSciClassStudent(unsigned int stuId);
 

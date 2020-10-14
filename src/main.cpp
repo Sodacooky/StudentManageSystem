@@ -5,7 +5,7 @@
 #include "StartInterface.h"
 #include "QueryInterface.h"
 #include "RankingInterface.h"
-#include"inputInterface.h"
+#include "RecordInterface.h"
 using namespace std;
 
 int main(int argc, char* argv[])
@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
 			break;
 
 		case 1://录入
-			inputInterface();
+			RecordInterface();
 			break;
 
 		case 2://排名

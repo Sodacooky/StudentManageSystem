@@ -141,7 +141,7 @@
   <ItemGroup>
     <ClCompile Include="src\Count.cpp" />
     <ClCompile Include="src\DataOperator.cpp" />
-    <ClCompile Include="src\inputInterface.cpp" />
+    <ClCompile Include="src\RecordInterface.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\QueryInterface.cpp" />
     <ClCompile Include="src\RankingInterface.cpp" />
@@ -152,7 +152,7 @@
   <ItemGroup>
     <ClInclude Include="src\Count.h" />
     <ClInclude Include="src\DataOperator.h" />
-    <ClInclude Include="src\inputInterface.h" />
+    <ClInclude Include="src\RecordInterface.h" />
     <ClInclude Include="src\QueryInterface.h" />
     <ClInclude Include="src\RankingInterface.h" />
     <ClInclude Include="src\StartInterface.h" />
