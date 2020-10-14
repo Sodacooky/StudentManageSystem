@@ -8,6 +8,7 @@
 #include "Tool.h"
 #include "TextChooser.h"
 #include "DataOperator.h"
+#include "Count.h"
 
 //查询界面
 //操作完会返回

@@ -15,4 +15,4 @@ bool IsPathExist(const std::string& filename);
 unsigned int StringToUInt(const std::string& str);
 
 //将浮点数转换为后面没有多余0的字符串
-static std::string DoubleToValidString(double x);
+std::string DoubleToValidString(double x);

@@ -34,6 +34,8 @@ struct Class
 {
 	//班级前缀号
 	unsigned int unPrefix = 0;
+	//总考试数
+	unsigned int unExamAmount = 0;
 	//班级人数
 	unsigned int unStuAmount = 0;
 	//班级类别，是否为理科班

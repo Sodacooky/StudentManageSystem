@@ -79,7 +79,7 @@ unsigned int StringToUInt(const std::string& str)
 	return ret;
 }
 
-static std::string DoubleToValidString(double x)
+std::string DoubleToValidString(double x)
 {
 	std::string ret = std::to_string(x);
 
