@@ -6,5 +6,6 @@
 #include "TextChooser.h"
 #include"RankingInterface.h"
 #include"Query.h"
+#include"inputInterface.h"
 
 int check();

@@ -12,7 +12,7 @@ int check() {
 			query();
 			break;
 		case 1:
-			//todo
+			inputInterface();
 			break;
 		case 2:
 			RankingInterface();
