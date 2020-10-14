@@ -191,3 +191,31 @@ bool IsSciClassStudent(unsigned int stuId)
 
 	return class_attr.bIsSciClass;
 }
+
+bool WriteNewScoreToStudent(unsigned int stuId, const ExamScore& score)
+{
+	//首先这个学生存不存在
+	if (!IsStudentExist(stuId))
+	{
+		return false;
+	}
+
+//首先读取进来
+	Student stu;
+	LoadStudentData(stuId, stu);
+
+	//然后将成绩加上
+	stu.vecExamScores.push_back(score);
+
+	//写回去
+	WriteStudent(stuId, stu);
+
+	return true;
+}
+
+void WriteStudent(unsigned int stuId, const Student& student)
+{
+	using namespace std;
+
+
+}
