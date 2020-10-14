@@ -25,9 +25,17 @@ bool IsFileExist(const std::string& filename)
 
 bool IsPathExist(const std::string& filename)
 {
+	auto path = filename;
+
+	//假定都是用这个杠
+	if (filename[filename.size() - 1] == '/')
+	{
+		path.erase(path.end() - 1);
+	}
+
 	_finddata_t fileInfo;
 
-	auto handle = _findfirst(filename.c_str(), &fileInfo);
+	auto handle = _findfirst(path.c_str(), &fileInfo);
 	if (handle == -1)
 	{
 		_findclose(handle);
@@ -71,6 +79,30 @@ unsigned int StringToUInt(const std::string& str)
 		}
 
 		if (iter == str.begin())
+		{
+			break;
+		}
+	}
+
+	return ret;
+}
+
+std::string DoubleToValidString(double x)
+{
+	std::string ret = std::to_string(x);
+
+	for (int index = ret.size() - 1; index >= 0; index--)
+	{
+		if (ret[index] == '0')
+		{
+			ret = ret.erase(index, 1);
+		}
+		else if (ret[index] == '.')
+		{
+			ret = ret.erase(index, 1);
+			break;
+		}
+		else
 		{
 			break;
 		}

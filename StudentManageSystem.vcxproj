@@ -150,6 +150,7 @@
     <ClCompile Include="src\Tool.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Count.h" />
     <ClInclude Include="src\DataOperator.h" />
     <ClInclude Include="src\inputInterface.h" />
     <ClInclude Include="src\QueryInterface.h" />

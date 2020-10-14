@@ -13,7 +13,7 @@ struct ExamScore
 	//分数
 	double dScore[6] = { 0.0,0.0,0.0,0.0,0.0,0.0 };
 	//总分，若不计算可以忽略
-	double dSum = 0.0;
+	double dTotal = 0.0;
 	//排名，若不使用可以忽略
 	int dRank = 0;
 };
@@ -25,7 +25,7 @@ struct Student
 	unsigned int unId;
 	//
 	std::string strName;
-	//这个学生的几门成绩
+	//这个学生的几场考试成绩
 	std::vector<ExamScore> vecExamScores;
 };
 
@@ -34,10 +34,10 @@ struct Class
 {
 	//班级前缀号
 	unsigned int unPrefix = 0;
+	//总考试数
+	unsigned int unExamAmount = 0;
 	//班级人数
 	unsigned int unStuAmount = 0;
 	//班级类别，是否为理科班
 	bool bIsSciClass = false;
-	//总考试场数
-	unsigned int unExamAmount = 0;
 };

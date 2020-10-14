@@ -65,7 +65,11 @@
     <ClInclude Include="src\QueryInterface.h">
       <Filter>头文件</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="src\inputInterface.h">
+=======
+    <ClInclude Include="src\Count.h">
+>>>>>>> 1b5a6dbfae040581f0c03489752bf29acfc3f7cc
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

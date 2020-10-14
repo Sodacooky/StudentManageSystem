@@ -3,23 +3,61 @@
 //讲学生信息“渲染”到字符串中
 static void RenderStudentData(Student& stu, std::string& strPrintContent);
 
-//将浮点数转换为后面没有多余0的字符串
-static std::string DoubleToValidString(double x);
+//修改学生的成绩
+static void Edit(Student& stu);
 
-static std::string DoubleToValidString(double x)
+//科目选择，返回和成绩数组对应的
+//参数二为科目的文本
+static int SelectSubject(unsigned int stuId, std::string& subjectName_out);
+
+static int SelectSubject(unsigned int stuId, std::string& subjectName_out)
 {
-	std::string ret = std::to_string(x);
+	using namespace std;
+	string tips;
+	tips.append("------------------------------------------------\n");
+	tips.append("\t选择要修改的科目\n");
+	tips.append("------------------------------------------------\n");
 
-	for (int index = ret.size() - 1; index >= 0; index--)
+	vector<string> subjects;
+	if (IsSciClassStudent(stuId))
 	{
-		if (ret[index] == '0')
+		subjects.push_back("语文");
+		subjects.push_back("数学");
+		subjects.push_back("英语");
+		subjects.push_back("物理");
+		subjects.push_back("化学");
+		subjects.push_back("生物");
+	}
+	else
+	{
+		subjects.push_back("语文");
+		subjects.push_back("数学");
+		subjects.push_back("英语");
+		subjects.push_back("政治");
+		subjects.push_back("历史");
+		subjects.push_back("地理");
+	}
+
+	auto index = TextChooserEnter(subjects, tips);
+	subjectName_out = subjects[index];
+	return index;
+}
+
+static void Edit(Student& stu)
+{
+	using namespace std;
+
+	//不清空屏幕让用户可以看见是哪一场考试
+	//提示输入考试编号后回车
+	unsigned int exam_code = 0;
+	while (true)
+	{
+		cout << "------------------------------------------------\n";
+		cout << "\n\n输入要修改的考试号后回车：\t";
+		cin >> exam_code;
+		if (exam_code > stu.vecExamScores.size())
 		{
-			ret = ret.erase(index, 1);
-		}
-		else if (ret[index] == '.')
-		{
-			ret = ret.erase(index, 1);
-			break;
+			cout << "不正确的考试号！请重新输入..." << endl;
 		}
 		else
 		{
@@ -27,7 +65,26 @@ static std::string DoubleToValidString(double x)
 		}
 	}
 
-	return ret;
+	//让用户选择修改哪一门的成绩
+	string subject_name;
+	auto subject_index = SelectSubject(stu.unId, subject_name);
+
+	//原成绩信息字符串
+	string old_exam_info;
+	RenderStudentData(stu, old_exam_info);
+
+	//让用户输入新的分数
+	double new_score = 0.0;
+	system("cls");
+	cout << old_exam_info << "输入第 " << exam_code << " 次考试的 " << subject_name << " 的新成绩：\t";
+	cin >> new_score;
+	cout << endl;
+
+	//修改
+	stu.vecExamScores[exam_code - 1].dScore[subject_index] = new_score;
+
+	//写入
+	WriteStudent(stu.unId, stu);
 }
 
 static void RenderStudentData(Student& stu, std::string& strPrintContent)
@@ -45,23 +102,24 @@ static void RenderStudentData(Student& stu, std::string& strPrintContent)
 
 	if (isSciStu)
 	{
-		ss << ("考试编号\t语文\t数学\t英语\t物理\t化学\t生物\n");
+		ss << ("考试号\t语文\t数学\t英语\t物理\t化学\t生物\t总分\n");
 	}
 	else
 	{
-		ss << ("考试编号\t语文\t数学\t英语\t政治\t历史\t地理\n");
+		ss << ("考试号\t语文\t数学\t英语\t政治\t历史\t地理\t总分\n");
 	}
 
-	ss << ("------------------------------------------------------------\n");
+	ss << ("-----------------------------------------------------------------------\n");
 
 	for (int index = 0; index != stu.vecExamScores.size(); index++)
 	{
-		ss << (std::to_string(index + 1) + "\t\t");
+		ss << (std::to_string(index + 1) + "\t");
 		for (int x = 0; x != 6; x++)
 		{
 			ss << DoubleToValidString(stu.vecExamScores[index].dScore[x]);
 			ss << "\t";
 		}
+		ss << DoubleToValidString(CountTotalOfExam(stu.vecExamScores[index]));
 		ss << "\n";
 	}
 
@@ -115,7 +173,8 @@ void QueryInterface()
 		switch (input)
 		{
 		case 0://修改
-			//todo
+			Edit(stu);
+			RenderStudentData(stu, stuPrintContent);
 			break;
 
 		case 1://back
