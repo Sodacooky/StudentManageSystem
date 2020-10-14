@@ -37,3 +37,7 @@ void CreateGrade(unsigned int gradeId);
 //创建班级
 //要求完整的班级前缀，如果年级不存在则自动新建
 void CreateClass(unsigned int classPrefix);
+
+//设置班级属性
+//要求完整的班级前缀，是否是理科班，考试总数
+void SetClassAttr(unsigned int classPrefix, bool isSciClass, unsigned int examAmount);

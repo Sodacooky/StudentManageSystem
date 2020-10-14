@@ -149,7 +149,7 @@ bool LoadClassAttr(unsigned int classPrefix, Class & class_out)
 	class_out.unStuAmount = CountStudentAmount(path, classPrefix);
 
 	//班级属性文件路径
-	std::string filename = path + "/info.txt";
+	std::string filename = path + "info.txt";
 	if (!IsFileExist(filename))
 	{
 		return false;
@@ -218,7 +218,7 @@ void WriteStudent(unsigned int stuId, const Student& student)
 {
 	using namespace std;
 
-	string filename = ClassPrefixToPath(stuId) + to_string(stuId) + ".txt";
+	string filename = ClassPrefixToPath(stuId / 100) + to_string(stuId) + ".txt";
 
 	ofstream file(filename);
 
@@ -227,10 +227,12 @@ void WriteStudent(unsigned int stuId, const Student& student)
 	for (auto& exam : student.vecExamScores)
 	{
 		file << endl;
-		for (int subject = 0; subject != 6; subject++)
+		for (int subject = 0; subject != 5; subject++)
 		{
-			file << exam.dScore[subject];
+			file << DoubleToValidString(exam.dScore[subject]);
+			file << '\t';
 		}
+		file << DoubleToValidString(exam.dScore[5]);
 	}
 
 	file.close();
@@ -264,4 +266,21 @@ void CreateClass(unsigned int classPrefix)
 
 	std::string cmdLine = "mkdir " + path;
 	system(cmdLine.c_str());
+}
+
+void SetClassAttr(unsigned int classPrefix, bool isSciClass, unsigned int examAmount)
+{
+	using namespace std;
+
+	auto path = ClassPrefixToPath(classPrefix);
+	if (!IsPathExist(path))
+	{
+		CreateClass(classPrefix);
+	}
+
+	ofstream file(path + "info.txt");
+	file << (isSciClass ? 1 : 0) << endl;
+	file << examAmount;
+
+	file.close();
 }
