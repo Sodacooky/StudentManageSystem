@@ -142,12 +142,16 @@
     <ClCompile Include="src\Count.cpp" />
     <ClCompile Include="src\DataOperator.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\QueryInterface.cpp" />
+    <ClCompile Include="src\RankingInterface.cpp" />
     <ClCompile Include="src\StartInterface.cpp" />
     <ClCompile Include="src\TextChooser.cpp" />
     <ClCompile Include="src\Tool.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DataOperator.h" />
+    <ClInclude Include="src\QueryInterface.h" />
+    <ClInclude Include="src\RankingInterface.h" />
     <ClInclude Include="src\StartInterface.h" />
     <ClInclude Include="src\TextChooser.h" />
     <ClInclude Include="src\Tool.h" />

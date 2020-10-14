@@ -3,12 +3,33 @@
 #include <iostream>
 
 #include "StartInterface.h"
-#include "Tool.h"
-#include "Type.h"
+#include "QueryInterface.h"
+#include "RankingInterface.h"
 
 using namespace std;
 
 int main(int argc, char* argv[])
 {
+	while (true)
+	{
+		auto input = StartInterface();
+		switch (input)
+		{
+		case 0://查询
+			QueryInterface();
+			break;
+
+		case 1://录入
+			//todo
+			break;
+
+		case 2://排名
+			RankingInterface();
+			break;
+
+		default:
+			break;
+		}
+	}
 	return 0;
 }

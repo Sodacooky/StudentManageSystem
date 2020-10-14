@@ -21,6 +21,8 @@ struct ExamScore
 //学生
 struct Student
 {
+	//学号
+	unsigned int unId;
 	//
 	std::string strName;
 	//这个学生的几场考试成绩
