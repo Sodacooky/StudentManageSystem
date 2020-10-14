@@ -14,6 +14,7 @@ static std::string CodeToString(unsigned int code);
 static int CountStudentAmount(const std::string& path, unsigned int classPrefix);
 
 //用班级前缀生成路径名称
+//如"data/19/01/"
 static std::string ClassPrefixToPath(unsigned int classPrefix);
 
 static std::string ClassPrefixToPath(unsigned int classPrefix)
@@ -217,5 +218,50 @@ void WriteStudent(unsigned int stuId, const Student& student)
 {
 	using namespace std;
 
+	string filename = ClassPrefixToPath(stuId) + to_string(stuId) + ".txt";
 
+	ofstream file(filename);
+
+	file << student.strName;
+
+	for (auto& exam : student.vecExamScores)
+	{
+		file << endl;
+		for (int subject = 0; subject != 6; subject++)
+		{
+			file << exam.dScore[subject];
+		}
+	}
+
+	file.close();
+}
+
+void CreateGrade(unsigned int gradeId)
+{
+	std::string path = "data/" + CodeToString(gradeId);
+	std::string cmdLine = "mkdir " + path;
+
+	system(cmdLine.c_str());
+}
+
+void CreateClass(unsigned int classPrefix)
+{
+	unsigned int gradeId, classId;
+	SeparateClassPrefix(classPrefix, gradeId, classId);
+
+	std::string path = "data/" + CodeToString(gradeId);
+	if (!IsPathExist(path))
+	{
+		CreateGrade(gradeId);
+	}
+
+	path += "/";
+	path += CodeToString(classId);
+	if (IsPathExist(path))
+	{
+		return;
+	}
+
+	std::string cmdLine = "mkdir " + path;
+	system(cmdLine.c_str());
 }

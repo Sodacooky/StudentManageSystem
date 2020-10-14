@@ -3,33 +3,6 @@
 //讲学生信息“渲染”到字符串中
 static void RenderStudentData(Student& stu, std::string& strPrintContent);
 
-//将浮点数转换为后面没有多余0的字符串
-static std::string DoubleToValidString(double x);
-
-static std::string DoubleToValidString(double x)
-{
-	std::string ret = std::to_string(x);
-
-	for (int index = ret.size() - 1; index >= 0; index--)
-	{
-		if (ret[index] == '0')
-		{
-			ret = ret.erase(index, 1);
-		}
-		else if (ret[index] == '.')
-		{
-			ret = ret.erase(index, 1);
-			break;
-		}
-		else
-		{
-			break;
-		}
-	}
-
-	return ret;
-}
-
 static void RenderStudentData(Student& stu, std::string& strPrintContent)
 {
 	using namespace std;

@@ -1,52 +1,36 @@
-#include <iostream>
-#include "Type.h"
+ï»¿#include "Count.h"
+
 using namespace std;
 
+double CountTotalOfExam(ExamScore& exam)
+{
+	double ret = 0.0;
 
-/*
-countTotalPoints		¼ÆËãÄ³³¡¿¼ÊÔµÄ×Ü·Ö
-countEryTotalPoints		¼ÆËãÃ¿³¡¿¼ÊÔµÄ×Ü·Ö
-countAverageScore		¼ÆËãÄ³³¡¿¼ÊÔµÄÆ½¾ù·Ö
-countEryAverageScore	¼ÆËãÃ¿³¡¿¼ÊÔµÄÆ½¾ù·Ö
-a´ú±íµÚ¼¸³¡¿¼ÊÔ
-*/
-
-double countTotalPoints(Student* stu, int a) {		
-	double sum = 0;
-	for (int i = 0; i <= 5; i++) {
-		sum += stu->vecExamScores[a].dScore[i];
+	for (auto single_score : exam.dScore)
+	{
+		ret += single_score;
 	}
-	return sum;
+
+	exam.dTotal = ret;
+
+	return ret;
 }
 
-double countEryTotalPoints(Student* stu, int a) {
-	int sum = 0;
-	for (int i = 0; i <= a; i++) {
-		for (int j = 0; j <= 5; j++) {
-			sum += stu->vecExamScores[a].dScore[i];
+double CountTotalAverage(Student& stu)
+{
+	double ret = 0.0;
+
+	for (auto& exam : stu.vecExamScores)
+	{
+		if (exam.dTotal != 0)
+		{
+			ret += exam.dTotal;
+		}
+		else
+		{
+			ret += CountTotalOfExam(exam);
 		}
 	}
-	return sum;
-}
 
-double countAverageScore(Student* stu, int a) {
-	double sum = 0;
-	double avrscore = 0;
-	for (int i = 0; i <= 5; i++) {
-		sum += stu->vecExamScores[a].dScore[i];
-	}
-	avrscore = sum / 6.0;
-	return avrscore;
-}
-
-double countEryAverageScore(Student* stu, int a) {
-	double sum = 0;
-	double avrscore = 0;
-	for (int i = 0; i <= a; i++) {
-		for (int j = 0; j <= 5; j++) {
-			sum += stu->vecExamScores[a].dScore[i];
-		}
-	}
-	avrscore = sum / (6.0 * a);
-	return avrscore;
+	return ret;
 }

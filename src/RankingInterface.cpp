@@ -1,4 +1,4 @@
-#include "RankingInterface.h"
+ï»¿#include "RankingInterface.h"
 
 void RankingInterface()
 {
@@ -6,15 +6,16 @@ void RankingInterface()
 
 	string head;
 	head.append("------------------------------------------------\n");
-	head.append("\t²é¿´ÅÅÃû\n");
-	head.append("\tÇëÊ¹ÓÃ·½Ïò¼üÑ¡Ôñ£¬»Ø³µ¼üÈ·¶¨\n");
+	head.append("\tæŸ¥çœ‹æ’åï¼Œé€‰æ‹©ä½ è¦æŸ¥çœ‹çš„æ’å\n");
+	head.append("\tè¯·ä½¿ç”¨æ–¹å‘é”®é€‰æ‹©ï¼Œå›è½¦é”®ç¡®å®š\n");
 	head.append("------------------------------------------------\n");
 
-	//¹¦ÄÜÁĞ±í
+	//åŠŸèƒ½åˆ—è¡¨
 	vector<string> funcList;
-	funcList.push_back("Äê¼¶ÄÚ¸÷°àÅÅĞò");
-	funcList.push_back("°à¼¶ÄÚÅÅĞò");
-	funcList.push_back("·µ»ØÉÏÒ»¼¶²Ëµ¥");
+	funcList.push_back("ç­å¹³å‡åˆ†æ’å");
+	funcList.push_back("å­¦ç”Ÿæ€»åˆ†(å¤šæ¬¡å¹³å‡)çº§æ’å");
+	funcList.push_back("ç­çº§å†…æ€»åˆ†æ’åº");
+	funcList.push_back("è¿”å›");
 
 	while (true)
 	{
@@ -28,6 +29,8 @@ void RankingInterface()
 			//todo
 			break;
 		case 2:
+			break;
+		case 3:
 			return;
 			//break;
 		default:

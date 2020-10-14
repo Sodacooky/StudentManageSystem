@@ -13,7 +13,7 @@ struct ExamScore
 	//分数
 	double dScore[6] = { 0.0,0.0,0.0,0.0,0.0,0.0 };
 	//总分，若不计算可以忽略
-	double dSum = 0.0;
+	double dTotal = 0.0;
 	//排名，若不使用可以忽略
 	int dRank = 0;
 };
